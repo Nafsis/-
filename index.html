@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pen</title>
+  </head>
+  <body>
+
+    <script src="./script.js"></script>
+  </body>
+</html><!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -11,8 +23,13 @@
   .clock { width: 300px; height: 300px; border: 15px solid #ffb6c1; border-radius: 50%; position: relative; background: white; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
   .center { width: 20px; height: 20px; background: #333; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; }
   .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom; border-radius: 10px; cursor: pointer; }
-  .hour-hand { width: 14px; height: 80px; background: #ff4500; margin-left: -7px; z-index: 2; pointer-events: none; }
-  .minute-hand { width: 10px; height: 125px; background: #1e90ff; margin-left: -5px; z-index: 1; }
+  
+  /* 短い針（時針）を青色に変更 */
+  .hour-hand { width: 14px; height: 80px; background: #1e90ff; margin-left: -7px; z-index: 2; pointer-events: none; }
+  
+  /* 長い針（分針）を赤色に変更 */
+  .minute-hand { width: 10px; height: 125px; background: #ff3333; margin-left: -5px; z-index: 1; }
+  
   .number { position: absolute; font-size: 28px; font-weight: bold; color: #333; transform: translate(-50%, -50%); pointer-events: none; }
   .controls { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
   button { font-size: 20px; font-weight: bold; padding: 15px 25px; border-radius: 12px; border: none; background: #32cd32; color: white; cursor: pointer; box-shadow: 0 4px 0 #228b22; transition: transform 0.1s; }
@@ -28,7 +45,6 @@
   <div class="hand minute-hand" id="minute"></div>
 </div>
 <div class="controls">
-
 </div>
 
 <script>
@@ -72,7 +88,7 @@
     updateClock();
   }
 
-  // 指で分針を回すための処理
+  // 指で長い針（赤）を回すための処理
   let isDragging = false;
   let rect = clock.getBoundingClientRect();
 
